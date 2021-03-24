@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { PokemonCard } from "./components/PokemonCard";
 import axios from "axios";
+import { Modal } from "./components/Modal";
 
 function App() {
   const [pokemons, setPokemon] = useState([]);
   const [pokemonInfo, setPokemonInfo] = useState([]);
-  //0: {name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"}
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios("https://pokeapi.co/api/v2/pokemon");
-      // console.log(result);
+      //"https://pokeapi.co/api/v2/pokemon?limit=100&offset=200"
       setPokemon(result.data.results);
     };
     fetchData();
@@ -29,28 +30,29 @@ function App() {
     });
   }, [pokemons]);
 
-  const fn = () => {
-    console.log(pokemonInfo);
+  const modalStatus = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <div className="App">
       <div className="header">
-        <h1>Header</h1>
+        <h2>PokeApi</h2>
+        <div className="header-modal-open" onClick={modalStatus}>
+          Поиск &#128269;
+        </div>
       </div>
+      {isOpen ? (
+        <Modal pokemonInfo={pokemonInfo} modalStatus={modalStatus} />
+      ) : null}
+
+      <button onClick={modalStatus}>Клик</button>
 
       <div className="container">
         {pokemonInfo.map((pokemon, index) => {
           return <PokemonCard key={index} pokemon={pokemon}></PokemonCard>;
         })}
       </div>
-      {/* <ul>
-        {pokemons.map((el, index) => {
-          return <li key={index}>{el.name}</li>;
-        })}
-      </ul> */}
-      {/* <p>Parent + {pokemon.name}</p> */}
-      <button onClick={fn}>Клик</button>
     </div>
   );
 }

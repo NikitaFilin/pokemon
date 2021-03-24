@@ -1,0 +1,39 @@
+.modal-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.modal-body {
+  position: absolute;
+  width: 290px;
+  margin-top: -70px;
+
+  text-align: end;
+  font-size: 30px;
+
+  color: green;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+.modal-body-close {
+  margin: 10px 20px -50px 0px;
+}
+.modal-body-close:hover {
+  font-size: 40px;
+  color: lightgreen;
+  margin: 10px 20px -62px 0px;
+}
+
+.modal-body-list {
+  list-style-type: none;
+  text-align: center;
+}
+.modal-body-list-item {
+  margin: 5px;
+}
+
+a:hover {
+  color: lightgreen;
+}

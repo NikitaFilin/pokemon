@@ -31,4 +31,9 @@
 }
 .pokemon_card :hover {
   cursor: pointer;
+  color: lightslategray;
 }
+
+/* h3 :hover {
+  color: lightslategray;
+} */
