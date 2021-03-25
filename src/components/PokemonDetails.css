@@ -1,0 +1,102 @@
+.pokemon-details-container-wrapper {
+  width: 100%;
+  padding: 30px 0px;
+}
+.pokemon-details-container {
+  max-width: 700px;
+  min-height: 600px;
+  margin: 0px auto;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  background: lightgray;
+  border-radius: 15px;
+}
+.pokemon-details-container-title {
+  padding: 0px 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+.pokemon-details-container-content {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-device-width: 500px) {
+  .pokemon-details-container-wrapper {
+    width: 100%;
+    padding: 0px;
+  }
+  .pokemon-details-container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pokemon-details-container {
+    border-radius: 0px;
+  }
+}
+/* ??? */
+.pokemon-details-container-content-image {
+  max-width: 40%;
+  min-width: 220px;
+  display: flex;
+}
+.pokemon-details-container-content-info {
+  width: 60%;
+  margin: 10px;
+  padding: 0px 20px 20px 20px;
+
+  background-color: azure;
+  border-radius: 15px;
+  border: 3px solid black;
+}
+.pokemon-details-container-content-info p {
+  text-align: left;
+}
+.pokemon-details-container-content-params {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 15px;
+}
+.pokemon-details-container-content-params-param {
+  text-align: left;
+  margin: 5px 0px;
+}
+.pokemon-details-container-content-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0px 15px;
+}
+.pokemon-details-container-content-stats-stat {
+  width: 40%;
+  text-align: left;
+  margin: 5px 0px;
+}
+
+.pokemon-details-container-content-ability {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pokemon-details-container-content-ability div {
+  text-decoration: underline;
+}
+
+.pokemon-details-container-content-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

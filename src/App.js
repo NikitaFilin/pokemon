@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { PokemonCard } from "./components/PokemonCard";
 import axios from "axios";
+
+import { PokemonCard } from "./components/PokemonCard";
 import { Modal } from "./components/Modal";
+
+import { PokemonDetails } from "./components/PokemonDetails";
 
 function App() {
   const [pokemons, setPokemon] = useState([]);
@@ -34,25 +37,23 @@ function App() {
     setIsOpen(!isOpen);
   };
 
+  // console.log(pokemonInfo);
   return (
     <div className="App">
-      <div className="header">
+      {/* <div className="header">
         <h2>PokeApi</h2>
         <div className="header-modal-open" onClick={modalStatus}>
           Поиск &#128269;
         </div>
       </div>
-      {isOpen ? (
-        <Modal pokemonInfo={pokemonInfo} modalStatus={modalStatus} />
-      ) : null}
-
-      <button onClick={modalStatus}>Клик</button>
+      {isOpen ? <Modal pokemons={pokemons} modalStatus={modalStatus} /> : null}
 
       <div className="container">
         {pokemonInfo.map((pokemon, index) => {
           return <PokemonCard key={index} pokemon={pokemon}></PokemonCard>;
         })}
-      </div>
+      </div> */}
+      <PokemonDetails />
     </div>
   );
 }

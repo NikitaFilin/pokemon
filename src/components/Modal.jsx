@@ -1,7 +1,7 @@
 import React from "react";
 import "./Modal.css";
 
-export const Modal = ({ pokemonInfo, modalStatus }) => {
+export const Modal = ({ pokemons, modalStatus }) => {
   return (
     <div className="modal-container">
       <div className="modal-body">
@@ -9,10 +9,10 @@ export const Modal = ({ pokemonInfo, modalStatus }) => {
           X
         </div>
         <ul className="modal-body-list">
-          {pokemonInfo.map((el, index) => {
+          {pokemons.map((el, index) => {
             return (
               <li className="modal-body-list-item" key={index}>
-                <a>{el[0].name}</a>
+                <a>{el.name}</a>
               </li>
             );
           })}
