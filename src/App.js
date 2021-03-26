@@ -1,61 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import "./App.css";
-import axios from "axios";
-
-import { PokemonCard } from "./components/PokemonCard";
-import { Modal } from "./components/Modal";
-
+import { Error } from "./components/Error";
+import { Home } from "./components/Home";
 import { PokemonDetails } from "./components/PokemonDetails";
 
 function App() {
-  const [pokemons, setPokemon] = useState([]);
-  const [pokemonInfo, setPokemonInfo] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("https://pokeapi.co/api/v2/pokemon");
-      //"https://pokeapi.co/api/v2/pokemon?limit=100&offset=200"
-      setPokemon(result.data.results);
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    pokemons.forEach((el) => {
-      let url = el.url;
-      const fetchData = async () => {
-        const result = await axios(url);
-        let newPokemon = [...pokemonInfo, result.data];
-        setPokemonInfo((pokemonInfo) => [...pokemonInfo, newPokemon]);
-      };
-      fetchData();
-    });
-  }, [pokemons]);
-
-  const modalStatus = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // console.log(pokemonInfo);
   return (
-    <div className="App">
-      {/* <div className="header">
-        <h2>PokeApi</h2>
-        <div className="header-modal-open" onClick={modalStatus}>
-          Поиск &#128269;
-        </div>
-      </div>
-      {isOpen ? <Modal pokemons={pokemons} modalStatus={modalStatus} /> : null}
-
-      <div className="container">
-        {pokemonInfo.map((pokemon, index) => {
-          return <PokemonCard key={index} pokemon={pokemon}></PokemonCard>;
-        })}
-      </div> */}
-      <PokemonDetails />
-    </div>
+    // <Router>
+    //   <div>
+    //     <Link to="/home">Home</Link>
+    //     <Link to="/details">Details</Link>
+    //   </div>
+    //   <Switch>
+    //     <Route exact path="/home" component={Home} />
+    //     <Route exact path="/details" component={PokemonDetails} />
+    //     <Route exact component={Error} />
+    //   </Switch>
+    // </Router>
+    <Home />
   );
 }
-
+// render={(props) => <PropsPage {...props} title={`Props through render`}
 export default App;
