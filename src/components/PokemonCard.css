@@ -24,16 +24,16 @@
   -moz-border-radius: 20px;
   border-radius: 20px;
 }
-
-.pokemon_image {
-  max-width: 100%;
-  min-height: 70%;
+.pokemon_card a {
+  color: black;
+  text-decoration: none;
 }
+
 .pokemon_card :hover {
   cursor: pointer;
   color: lightslategray;
 }
-
-/* h3 :hover {
-  color: lightslategray;
-} */
+.pokemon_image {
+  max-width: 100%;
+  min-height: 70%;
+}
