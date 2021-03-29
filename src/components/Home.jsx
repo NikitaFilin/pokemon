@@ -50,7 +50,7 @@ export const Home = () => {
 
       <div className="container">
         {pokemonInfo.map((pokemon, index) => {
-          return <PokemonCard key={index} pokemon={pokemon}></PokemonCard>;
+          return <PokemonCard key={index} pokemon={pokemon[0]}></PokemonCard>;
         })}
       </div>
     </div>

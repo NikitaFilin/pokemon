@@ -37,7 +37,7 @@ export const Modal = ({ pokemons, modalStatus }) => {
           path="/:id"
           render={(props) => <PokemonDetails {...props} data={pokemons} />}
         />
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} /> */}
         <Route exact component={Error} />
       </Switch>
     </Router>

@@ -42,14 +42,16 @@
     border-radius: 0px;
   }
 }
-/* ??? */
 .pokemon-details-container-content-image {
-  max-width: 40%;
+  width: 50%;
   min-width: 220px;
   display: flex;
 }
+.pokemon-details-container-content-image img {
+  max-width: 100%;
+}
 .pokemon-details-container-content-info {
-  width: 60%;
+  width: 50%;
   margin: 10px;
   padding: 0px 20px 20px 20px;
 

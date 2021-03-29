@@ -1,33 +1,68 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+} from "react-router-dom";
 
 import "./PokemonCard.css";
 
-import { PokemonDetails } from "./PokemonDetails";
-import { Home } from "./Home";
-import { Error } from "./Error";
+// import { PokemonDetails } from "./PokemonDetails";
+// import { Home } from "./Home";
+// import { Error } from "./Error";
+import axios from "axios";
 
-export const PokemonCard = ({ pokemon }) => {
-  console.log("!!!", pokemon);
-  const pokemonStats = pokemon[0];
-  const pokemonImg = pokemonStats.sprites.other.dream_world.front_default;
+export const PokemonCard = ({ pokemon, setSelectedPokemon }) => {
+  console.log(pokemon);
+  // const [pokemonInfo, setPokemonInfo] = useState(null);
+  // let { path, url } = useRouteMatch();
+  // const pokemonStats = pokemon[0];
+  // const pokemonImg = pokemonStats.sprites.other.dream_world.front_default;
+
+  // useEffect(() => {
+  //   console.log("Я получил", pokemon);
+  //   let { url } = pokemon;
+  //   console.log("url", url);
+
+  //   const fetchData = async () => {
+  //     const result = await axios(url);
+  //     console.log("result", result.data);
+
+  //     setPokemonInfo(result.data);
+  //   };
+  //   fetchData();
+  // }, []);
+
+  if (!pokemon) {
+    console.log("null");
+    return null;
+  }
+
+  // const {
+  //   id,
+  //   name,
+  //   sprites: {
+  //     other: {
+  //       dream_world: { front_default: pokemonImg },
+  //     },
+  //   },
+  // } = pokemonInfo;
+  const { name } = pokemon;
+  const { id } = pokemon;
+  const pokemonImg = pokemon.sprites.other.dream_world.front_default;
+
+  console.log("url", pokemonImg);
   return (
     <Router>
       <div className="pokemon_card">
-        <a href={pokemonStats.id}>
-          <h3 className="pokemon_name">{pokemonStats.name}</h3>
+        {/* onClick={() => setSelectedPokemon(pokemonInfo)} */}
+        <Link to={`/${id}`}>
+          <h3 className="pokemon_name">{name}</h3>
           <img alt="logo" className="pokemon_image" src={pokemonImg}></img>
-        </a>
+        </Link>
       </div>
-      <Switch>
-        <Route
-          exact
-          path="/:id"
-          // render={(props) => <PokemonDetails {...props} data={pokemonStats} />}
-        />
-        <Route exact path="/" component={Home} />
-        <Route exact component={Error} />
-      </Switch>
     </Router>
   );
 };
