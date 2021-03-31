@@ -1,26 +1,33 @@
-import React from "react";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter } from "react-router-dom";
+import axios from "axios";
 
 import "./App.css";
+import { Header } from "./components/Header";
 import { Home } from "./components/Home";
-// import { Error } from "./components/Error";
-// import { PokemonDetails } from "./components/PokemonDetails";
+import { PokemonDetailsCard } from "./components/PokemonDetailsCard";
 
 function App() {
+  const [pokemons, setPokemon] = useState([]); // Array [20] {name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"}
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("https://pokeapi.co/api/v2/pokemon");
+      //"https://pokeapi.co/api/v2/pokemon?limit=100&offset=200"
+      setPokemon(result.data.results);
+    };
+    fetchData();
+  }, []);
+
   return (
-    // <Router>
-    //   <div>
-    //     <Link to="/home">Home</Link>
-    //     <Link to="/details">Details</Link>
-    //   </div>
-    //   <Switch>
-    //     <Route exact path="/home" component={Home} />
-    //     <Route exact path="/details" component={PokemonDetails} />
-    //     <Route exact component={Error} />
-    //   </Switch>
-    // </Router>
-    <Home />
+    <BrowserRouter>
+      <Header />
+      <Route exact path="/" render={() => <Home pokemons={pokemons} />}></Route>
+      <Route
+        path="/:id"
+        render={(props) => <PokemonDetailsCard {...props} />}
+      ></Route>
+    </BrowserRouter>
   );
 }
-// render={(props) => <PropsPage {...props} title={`Props through render`}
 export default App;
