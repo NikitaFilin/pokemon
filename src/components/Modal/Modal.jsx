@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { PokemonDetails } from "./PokemonDetails";
-import { Error } from "./Error";
+import { Error } from "../Error/Error";
 
 import "./Modal.css";
 
@@ -36,7 +36,6 @@ export const Modal = ({ pokemons, modalStatus }) => {
           path="/:id"
           render={(props) => <PokemonDetails {...props} data={pokemons} />}
         />
-        {/* <Route exact path="/" component={Home} /> */}
         <Route exact component={Error} />
       </Switch>
     </Router>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./PokemonDetailsCard.css";
-import { Link } from "react-router-dom";
+import { PokemonDetailsType } from "./PokemonDetailsType";
 
 export const PokemonDetailsCard = (...props) => {
   const [pokemonDetails, setPokemonDetails] = useState(null);
@@ -18,7 +19,6 @@ export const PokemonDetailsCard = (...props) => {
   }, []);
 
   if (!pokemonDetails) {
-    console.log("null");
     return null;
   }
 
@@ -67,17 +67,14 @@ export const PokemonDetailsCard = (...props) => {
               </div>
               <p>Type:</p>
               <div className="pokemon-details-container-content-types">
-                {pokemonDetails.types.map((el) => {
-                  return <div>{el.type.name}</div>;
+                {pokemonDetails.types.map((el, index) => {
+                  return <PokemonDetailsType key={index} type={el.type.name} />;
                 })}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Link to="/">
-        <h2>Home</h2>
-      </Link>
     </div>
   );
 };

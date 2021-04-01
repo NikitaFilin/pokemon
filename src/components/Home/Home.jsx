@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import "../App.css";
-import { PokemonCard } from "./PokemonCard";
+import "../../App.css";
+import { PokemonCard } from "../PokemonCard/PokemonCard";
 
 export const Home = (pokemons) => {
   const [pokemonData, setPokemonData] = useState(null);
@@ -14,7 +14,6 @@ export const Home = (pokemons) => {
   }, [pokemons]);
 
   if (!pokemonData) {
-    console.log("null");
     return null;
   }
 

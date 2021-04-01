@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import "./PokemonCard.css";
 
 export const PokemonCard = ({ pokemon }) => {
-  console.log("pokeCard", pokemon);
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ export const PokemonCard = ({ pokemon }) => {
   }, []);
 
   if (!pokemonDetails) {
-    console.log("null");
     return null;
   }
   const { name } = pokemon;

@@ -4,8 +4,8 @@ import axios from "axios";
 
 import "./App.css";
 import { Header } from "./components/Header";
-import { Home } from "./components/Home";
-import { PokemonDetailsCard } from "./components/PokemonDetailsCard";
+import { Home } from "./components/Home/Home";
+import { PokemonDetailsCard } from "./components/PokemonDetails/PokemonDetailsCard";
 
 function App() {
   const [pokemons, setPokemon] = useState([]); // Array [20] {name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"}
