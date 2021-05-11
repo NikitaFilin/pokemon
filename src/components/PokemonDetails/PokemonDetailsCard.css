@@ -16,6 +16,7 @@
 }
 .pokemon-details-container-title {
   padding: 0px 20px;
+  margin: -20px 0px;
 
   display: flex;
   flex-direction: row;
@@ -104,4 +105,22 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
+  font-family: "Zen Dots", cursive;
+}
+.pokemon-details-container-backButton {
+  margin: 1rem;
+  padding: 1rem;
+
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color: azure;
+
+  font-family: "Zen Dots", cursive;
+  font-size: 25px;
+  font-weight: 600;
+}
+.pokemon-details-container-backButton:hover {
+  box-shadow: 0 0 5px 2px lightslategray;
+  color: lightslategray;
 }

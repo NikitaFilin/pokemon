@@ -68,11 +68,17 @@ export const PokemonDetailsCard = (...props) => {
               <p>Type:</p>
               <div className="pokemon-details-container-content-types">
                 {pokemonDetails.types.map((el, index) => {
+                  // Было свободное время :)
                   return <PokemonDetailsType key={index} type={el.type.name} />;
                 })}
               </div>
             </div>
           </div>
+          <Link to="/">
+            <button className="pokemon-details-container-backButton">
+              Назад
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -6,8 +6,13 @@ export const Header = () => {
   return (
     <div className="header">
       <Link to="/">
-        <h2>PokeApi</h2>
+        <img
+          src="pikachu_icon.svg"
+          // src="pokeball.png"
+          alt="PokéAPI"
+        />
       </Link>
+
       <div className="header-modal-open">
         <input placeholder="Найти"></input>
       </div>
