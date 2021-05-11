@@ -25,7 +25,9 @@ function App() {
       <Route exact path="/" render={() => <Home pokemons={pokemons} />}></Route>
       <Route
         path="/:id"
-        render={(props) => <PokemonDetailsCard {...props} />}
+        render={(props) => (
+          <PokemonDetailsCard key={props.location.key} {...props} />
+        )}
       ></Route>
     </BrowserRouter>
   );

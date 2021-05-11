@@ -21,6 +21,10 @@ export const PokemonCard = ({ pokemon }) => {
   if (!pokemonDetails) {
     return null;
   }
+  // pokemonDetails.id.sort((a, b) => b - a);
+
+  console.log(pokemonDetails);
+
   const { name } = pokemon;
   const { id } = pokemonDetails;
   const pokemonImg = pokemonDetails.sprites.other.dream_world.front_default;

@@ -1,6 +1,14 @@
-.pokemon-details-container-wrapper {
+.pokemon-details-container-wrapper-card {
   width: 100%;
   padding: 30px 0px;
+}
+.pokemon-details-container-wrapper {
+  max-width: 80%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .pokemon-details-container {
   max-width: 700px;
@@ -25,6 +33,25 @@
   font-size: 30px;
   letter-spacing: 3px;
 }
+.pokemon-details-container-title-button {
+  min-width: 55px;
+  min-height: 55px;
+  margin: 30px -10px;
+  border-radius: 10px;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  border: 3px solid black;
+  background-color: azure;
+
+  font-family: "Zen Dots", cursive;
+}
+.pokemon-details-container-title-button:hover {
+  border: solid lightslategray;
+  color: lightslategray;
+}
+
 .pokemon-details-container-content {
   display: flex;
   flex-direction: row;
@@ -108,7 +135,7 @@
 
   font-family: "Zen Dots", cursive;
 }
-.pokemon-details-container-backButton {
+.pokemon-details-container-button {
   margin: 1rem;
   padding: 1rem;
 
@@ -120,7 +147,17 @@
   font-size: 25px;
   font-weight: 600;
 }
-.pokemon-details-container-backButton:hover {
+.pokemon-details-container-button:hover {
   box-shadow: 0 0 5px 2px lightslategray;
   color: lightslategray;
+}
+
+.pokemon-details-container-button-arrow {
+  border: 0px solid white;
+  border-radius: 50%;
+}
+.pokemon-details-container-button-arrow:hover {
+  /* border: 4px solid lightslategray; */
+  box-shadow: 0 0 10px 4px lightslategrey;
+  border-radius: 50%;
 }
