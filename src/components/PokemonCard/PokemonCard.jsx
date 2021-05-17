@@ -31,8 +31,10 @@ export const PokemonCard = ({ pokemon }) => {
   return (
     <div className="pokemon_card">
       <Link to={`/${id}`}>
-        <h3 className="pokemon_name">{name}</h3>
-        <img alt="logo" className="pokemon_image" src={pokemonImg}></img>
+        <div className="pokemon_card_content">
+          <h3 className="pokemon_name">{name}</h3>
+          <img alt="logo" className="pokemon_image" src={pokemonImg}></img>
+        </div>
       </Link>
       <button className="pokemon_card_add-button">Поймать</button>
     </div>
