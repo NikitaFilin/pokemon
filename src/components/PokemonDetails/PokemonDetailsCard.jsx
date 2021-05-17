@@ -24,7 +24,7 @@ export const PokemonDetailsCard = (...props) => {
   }
 
   const pokemonImg = pokemonDetails.sprites.other.dream_world.front_default;
-  console.log("Запрос");
+
   return (
     <div>
       <div className="pokemon-details-container-wrapper-card">
@@ -86,7 +86,6 @@ export const PokemonDetailsCard = (...props) => {
                 <p>Type:</p>
                 <div className="pokemon-details-container-content-types">
                   {pokemonDetails.types.map((el, index) => {
-                    // Было свободное время :)
                     return (
                       <PokemonDetailsType key={index} type={el.type.name} />
                     );
@@ -96,8 +95,8 @@ export const PokemonDetailsCard = (...props) => {
             </div>
             <div>
               <Link to="/">
-                <button className="pokemon-details-container-button">
-                  Назад
+                <button className="pokemon-details-container-addButton">
+                  Хвать в команду
                 </button>
               </Link>
             </div>

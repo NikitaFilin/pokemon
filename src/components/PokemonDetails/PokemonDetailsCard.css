@@ -135,7 +135,7 @@
 
   font-family: "Zen Dots", cursive;
 }
-.pokemon-details-container-button {
+.pokemon-details-container-addButton {
   margin: 1rem;
   padding: 1rem;
 
@@ -147,9 +147,9 @@
   font-size: 25px;
   font-weight: 600;
 }
-.pokemon-details-container-button:hover {
-  box-shadow: 0 0 5px 2px lightslategray;
-  color: lightslategray;
+.pokemon-details-container-addButton:hover {
+  box-shadow: 0 0 5px 2px limegreen;
+  color: limegreen;
 }
 
 .pokemon-details-container-button-arrow {

@@ -1,6 +1,6 @@
 .pokemon_card {
   width: 250px;
-  min-height: 300px;
+  min-height: 450px;
   margin: 25px;
   padding: 10px;
 
@@ -33,7 +33,32 @@
   cursor: pointer;
   color: lightslategray;
 }
+
+.pokemon_name {
+  /* font-family: "Recursive", sans-serif; */
+  letter-spacing: 3px;
+  font-size: 30px;
+  margin: 10px 0px 20px 0px;
+}
 .pokemon_image {
   max-width: 100%;
-  min-height: 70%;
+  min-height: 65%;
+}
+
+.pokemon_card_add-button {
+  min-width: 80%;
+  margin: 10px;
+  padding: 15px;
+
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color: azure;
+
+  font-family: "Zen Dots", cursive;
+  font-size: 25px;
+  font-weight: 600;
+}
+.pokemon_card_add-button:hover {
+  border: 3px solid lightgreen;
+  color: grey;
 }

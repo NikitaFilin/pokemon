@@ -16,14 +16,13 @@ export const PokemonCard = ({ pokemon }) => {
       setPokemonDetails(result.data);
     };
     fetchData();
-  }, []);
+  }, [pokemon]);
 
   if (!pokemonDetails) {
     return null;
   }
-  // pokemonDetails.id.sort((a, b) => b - a);
 
-  console.log(pokemonDetails);
+  // console.log(pokemonDetails);
 
   const { name } = pokemon;
   const { id } = pokemonDetails;
@@ -35,6 +34,7 @@ export const PokemonCard = ({ pokemon }) => {
         <h3 className="pokemon_name">{name}</h3>
         <img alt="logo" className="pokemon_image" src={pokemonImg}></img>
       </Link>
+      <button className="pokemon_card_add-button">Поймать</button>
     </div>
   );
 };
