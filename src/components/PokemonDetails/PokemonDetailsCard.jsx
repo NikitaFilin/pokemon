@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./PokemonDetailsCard.css";
 import { PokemonDetailsType } from "./PokemonDetailsType";
+
+import { PokemonDataContext } from "../../Context/PokemonDataContext";
 
 export const PokemonDetailsCard = (...props) => {
   const [pokemonDetails, setPokemonDetails] = useState(null);
@@ -18,6 +20,8 @@ export const PokemonDetailsCard = (...props) => {
     };
     fetchData();
   }, []);
+
+  const context = useContext(PokemonDataContext);
 
   if (!pokemonDetails) {
     return null;
@@ -98,11 +102,12 @@ export const PokemonDetailsCard = (...props) => {
               </div>
             </div>
             <div>
-              <Link to="/">
-                <button className="pokemon-details-container-addButton">
-                  Хвать в команду
-                </button>
-              </Link>
+              <button
+                className="pokemon-details-container-addButton"
+                onClick={() => context.pokemonsTeamAdd(pokemonDetails)}
+              >
+                Хвать в команду
+              </button>
             </div>
           </div>
           <Link to={`/${pokemonDetails.id + 1}`}>

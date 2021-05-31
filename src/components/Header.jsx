@@ -19,7 +19,6 @@ export const Header = () => {
         }
         <span>(Home)</span>
       </div>
-
       <div className="header-modal-open">
         <span>(my Team)</span>
         <img src="pokemon_team.svg" alt="PokéTeam" onClick={partyVisible} />

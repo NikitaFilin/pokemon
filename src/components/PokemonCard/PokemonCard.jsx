@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 
+import axios from "axios";
 import { Link } from "react-router-dom";
+
+import { PokemonDataContext } from "../../Context/PokemonDataContext";
 
 import "./PokemonCard.css";
 
 export const PokemonCard = ({ pokemon }) => {
   const [pokemonDetails, setPokemonDetails] = useState(null);
+  const context = useContext(PokemonDataContext);
+  const { pokemonsTeamAdd, pokemonsTeamRemove } = context;
 
   useEffect(() => {
     // Получаем детальную информацию по покемону для Id и Image
@@ -46,7 +50,7 @@ export const PokemonCard = ({ pokemon }) => {
       </Link>
       <button
         className="pokemon_card_add-button"
-        onClick={() => localStorage.setItem(id, id)}
+        onClick={() => pokemonsTeamAdd(pokemonDetails)}
       >
         Поймать
       </button>
