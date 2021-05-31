@@ -23,7 +23,11 @@ export const PokemonDetailsCard = (...props) => {
     return null;
   }
 
-  const pokemonImg = pokemonDetails.sprites.other.dream_world.front_default;
+  let pokemonImg = pokemonDetails.sprites.other.dream_world.front_default;
+
+  if (pokemonImg == null) {
+    pokemonImg = pokemonDetails.sprites.other["official-artwork"].front_default;
+  }
 
   return (
     <div>

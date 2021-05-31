@@ -16,12 +16,12 @@ body {
 .header img {
   max-height: 90px;
 }
-.header-modal-open {
+.header img:hover {
+  cursor: pointer;
+}
+.header span {
   font-size: 25px;
   font-weight: 600;
-}
-.header-modal-open:hover {
-  color: lightslategrey;
 }
 
 .container-wrapper-pokemonCard {
@@ -38,7 +38,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   max-width: 1300px;
   padding: 20px 0px 0px 0px;
   font-size: 20px;

@@ -10,7 +10,6 @@ export const Home = (pokemons) => {
   const [pokeTypeId, setPokeTypeId] = useState(null);
 
   const pokeFilter = (id) => {
-    console.log("uuu", id);
     setPokeTypeId(id);
   };
 

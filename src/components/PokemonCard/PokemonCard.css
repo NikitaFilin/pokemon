@@ -45,15 +45,19 @@
   margin: 10px 0px 20px 0px;
 }
 .pokemon_image {
-  max-width: 85%;
+  max-width: 90%;
   min-height: 65%;
+}
+.pokemon_image_null {
+  font-size: 25px;
+  margin-top: 30%;
 }
 
 .pokemon_card_add-button {
   height: 10%;
   min-width: 80%;
   margin: 0px auto;
-  padding: 15px;
+  padding: 10px;
 
   display: flex;
   align-items: center;
@@ -68,6 +72,8 @@
   font-weight: 600;
 }
 .pokemon_card_add-button:hover {
-  border: 3px solid lightgreen;
-  color: grey;
+  border: 3px solid limegreen;
+
+  box-shadow: 0 0 5px 2px limegreen;
+  color: limegreen;
 }

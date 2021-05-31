@@ -22,21 +22,34 @@ export const PokemonCard = ({ pokemon }) => {
     return null;
   }
 
-  // console.log(pokemonDetails);
-
   const { name } = pokemon;
   const { id } = pokemonDetails;
-  const pokemonImg = pokemonDetails.sprites.other.dream_world.front_default;
+  let pokemonImg = pokemonDetails.sprites.other.dream_world.front_default; // sprites.other["official-artwork"].front_default;
+
+  if (pokemonImg == null) {
+    pokemonImg = pokemonDetails.sprites.other["official-artwork"].front_default;
+  }
 
   return (
     <div className="pokemon_card">
       <Link to={`/${id}`}>
         <div className="pokemon_card_content">
           <h3 className="pokemon_name">{name}</h3>
-          <img alt="logo" className="pokemon_image" src={pokemonImg}></img>
+          {pokemonImg !== null ? (
+            <img alt="logo" className="pokemon_image" src={pokemonImg}></img>
+          ) : (
+            <div className="pokemon_image_null">
+              Мы никогда не видели этого покемона &#129323;
+            </div>
+          )}
         </div>
       </Link>
-      <button className="pokemon_card_add-button">Поймать</button>
+      <button
+        className="pokemon_card_add-button"
+        onClick={() => localStorage.setItem(id, id)}
+      >
+        Поймать
+      </button>
     </div>
   );
 };

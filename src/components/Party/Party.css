@@ -1,0 +1,34 @@
+.party_wrapper {
+  position: absolute;
+  min-width: 350px;
+  min-height: 300px;
+  background-color: lightslategray;
+  margin: 0% -12%;
+  /* opacity: 0.9; */
+  border: 2px solid black;
+  border-radius: 15px;
+
+  transition: 1s;
+}
+.party_tittle {
+  text-align: end;
+  font-size: 30px;
+  margin: 10px;
+  color: white;
+}
+.party_tittle h3 {
+  margin: 0px;
+  text-decoration: underline;
+}
+
+.party_pokemon_line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.party_pokemon_line p {
+  margin: 5px 0px;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
