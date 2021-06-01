@@ -15,6 +15,15 @@ body {
 }
 .header img {
   max-height: 90px;
+  /* min-width: 120px; */
+}
+.header-img-team:hover {
+  box-shadow: 0 0 10px 4px lightslategrey;
+  border-radius: 50%;
+}
+.header-img-logo:hover {
+  background-color: yellow;
+  border-radius: 50%;
 }
 .header img:hover {
   cursor: pointer;

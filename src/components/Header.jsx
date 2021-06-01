@@ -14,14 +14,23 @@ export const Header = () => {
       <div>
         {
           <Link to="/">
-            <img src="pikachu_icon.svg" alt="PokéAPI" />
+            <img
+              src="pikachu_icon.svg"
+              alt="PokéAPI"
+              className="header-img-logo"
+            />
           </Link>
         }
         <span>(Home)</span>
       </div>
       <div className="header-modal-open">
         <span>(my Team)</span>
-        <img src="pokemon_team.svg" alt="PokéTeam" onClick={partyVisible} />
+        <img
+          src="pokemon_team.svg"
+          alt="PokéTeam"
+          className="header-img-team"
+          onClick={partyVisible}
+        />
         {partyActive ? <Party /> : null}
 
         {/* <Link to="/">
