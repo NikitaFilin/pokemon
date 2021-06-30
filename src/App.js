@@ -6,19 +6,26 @@ import "./App.css";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home/Home";
 import { PokemonDetailsCard } from "./components/PokemonDetails/PokemonDetailsCard";
-
 import { PokemonDataContext } from "./Context/PokemonDataContext";
 
 function App() {
   const [pokemons, setPokemon] = useState([]); // Array [20] {name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"}
-
   const [pokemonsTeam, setPokemonsTeam] = useState([]);
+
   const pokemonsTeamAdd = (pokemon) => {
+    // Проверяем нет ли такого покемона в команде
+    let pokemonArrId = [];
+    pokemonsTeam.forEach((pokemon) => {
+      pokemonArrId.push(pokemon.id);
+    });
+    if (!pokemonArrId.includes(pokemon.id)) {
+      setPokemonsTeam([...pokemonsTeam, pokemon]);
+    }
+    console.log("pokemonArrId", pokemonArrId, "и", pokemon.id);
     console.log("pokemonsTeam", pokemonsTeam);
-    setPokemonsTeam([...pokemonsTeam, pokemon]);
   };
+
   const pokemonsTeamRemove = (pokemon) => {
-    console.log("pokemon.id", pokemon.id);
     setPokemonsTeam(pokemonsTeam.filter((el) => el.id !== pokemon.id));
   };
   const value = {

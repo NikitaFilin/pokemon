@@ -135,7 +135,8 @@
 
   font-family: "Zen Dots", cursive;
 }
-.pokemon-details-container-addButton {
+.pokemon-details-container-addButton,
+.pokemon-details-container-removeButton {
   margin: 1rem;
   padding: 1rem;
 
@@ -150,6 +151,10 @@
 .pokemon-details-container-addButton:hover {
   box-shadow: 0 0 5px 2px limegreen;
   color: limegreen;
+}
+.pokemon-details-container-removeButton:hover {
+  box-shadow: 0 0 5px 2px red;
+  color: orangered;
 }
 
 .pokemon-details-container-button-arrow {

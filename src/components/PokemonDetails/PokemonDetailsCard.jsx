@@ -3,25 +3,43 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./PokemonDetailsCard.css";
-import { PokemonDetailsType } from "./PokemonDetailsType";
 
+import { PokemonDetailsType } from "./PokemonDetailsType/PokemonDetailsType";
 import { PokemonDataContext } from "../../Context/PokemonDataContext";
 
 export const PokemonDetailsCard = (...props) => {
   const [pokemonDetails, setPokemonDetails] = useState(null);
+  const [pokemonSelected, setPokemonSelected] = useState(null);
+  const [pokemonId, setPokemonId] = useState(null);
 
   useEffect(() => {
     // Получаем детальную информацию по покемону
     const url = [...props][0].match.url;
-    console.log(url);
     const fetchData = async () => {
       const result = await axios("https://pokeapi.co/api/v2/pokemon" + url);
       setPokemonDetails(result.data);
+      setPokemonId(result.data.id);
     };
     fetchData();
   }, []);
 
   const context = useContext(PokemonDataContext);
+
+  const handleClick = () => {
+    let pokemonArrId = [];
+    context.pokemonsTeam.forEach((pokemon) => {
+      pokemonArrId.push(pokemon.id);
+    });
+
+    console.log("pokemonArrId", pokemonArrId, "и", pokemonId);
+    if (pokemonArrId.includes(pokemonId)) {
+      setPokemonSelected(false);
+      context.pokemonsTeamRemove(pokemonDetails);
+    } else {
+      setPokemonSelected(true);
+      context.pokemonsTeamAdd(pokemonDetails);
+    }
+  };
 
   if (!pokemonDetails) {
     return null;
@@ -102,12 +120,21 @@ export const PokemonDetailsCard = (...props) => {
               </div>
             </div>
             <div>
-              <button
-                className="pokemon-details-container-addButton"
-                onClick={() => context.pokemonsTeamAdd(pokemonDetails)}
-              >
-                Хвать в команду
-              </button>
+              {pokemonSelected ? (
+                <button
+                  className="pokemon-details-container-removeButton"
+                  onClick={() => handleClick()}
+                >
+                  Отпустить
+                </button>
+              ) : (
+                <button
+                  className="pokemon-details-container-addButton"
+                  onClick={() => handleClick()}
+                >
+                  Выбрать в команду
+                </button>
+              )}
             </div>
           </div>
           <Link to={`/${pokemonDetails.id + 1}`}>

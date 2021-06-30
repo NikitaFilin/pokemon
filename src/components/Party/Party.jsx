@@ -2,26 +2,24 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PokemonDataContext } from "../../Context/PokemonDataContext";
 import "./Party.css";
+import { PartyStats } from "./PartyStats";
 
 export const Party = () => {
   const context = useContext(PokemonDataContext);
   const { pokemonsTeam, pokemonsTeamRemove } = context;
 
-  const [power, setPower] = useState(0);
-  const [defense, setDefense] = useState(0);
-  const [health, setHealth] = useState(0);
+  const [power, setPower] = useState(0),
+    [defense, setDefense] = useState(0),
+    [health, setHealth] = useState(0);
 
   useEffect(() => {
-    // let pokePower,
-    //   pokeDefense,
-    //   pokeHealth = [];
-    let pokePower = [];
-    let pokeDefense = [];
-    let pokeHealth = [];
+    let pokePower = [],
+      pokeDefense = [],
+      pokeHealth = [];
 
     pokemonsTeam.forEach((el) => {
       pokePower.push(el.stats[1].base_stat);
-      pokeDefense.push(el.stats[1].base_stat);
+      pokeDefense.push(el.stats[2].base_stat);
       pokeHealth.push(el.stats[0].base_stat);
     });
     setPower(pokePower.reduce((acc, el) => (acc += el), 0));
@@ -59,20 +57,7 @@ export const Party = () => {
         )}
       </div>
       {pokemonsTeam.length > 0 ? (
-        <div className="party_team_stats_wrapper">
-          <div className="party_team_stats">
-            <span>Атака команды:</span>
-            <span> {power}</span>
-          </div>
-          <div className="party_team_stats">
-            <span>Защита команды:</span>
-            <span> {defense}</span>
-          </div>
-          <div className="party_team_stats">
-            <span>Здоровье команды:</span>
-            <span> {health}</span>
-          </div>
-        </div>
+        <PartyStats power={power} defense={defense} health={health} />
       ) : null}
     </div>
   );
